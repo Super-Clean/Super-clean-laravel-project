@@ -63,7 +63,9 @@ class ServiceController extends Controller
 
     public function destroy($id)
     {
-        //
+      Service::findOrFail($id)->delete();
+//        $Article = Article::where('id', $id)->delete();
+        return redirect()->route('service.index');
     }
 
 }

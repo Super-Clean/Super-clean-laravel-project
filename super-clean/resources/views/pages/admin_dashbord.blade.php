@@ -48,10 +48,18 @@
                         <div class="col">
                             <h6><i class=" fa fa-calculator" style="font-size:24px"> :</i>
                                 {{$quary->date}}</h6>
-                            <h6><i class="fa fa-clock-o" style="font-size:24px"> :</i>
-                                {{$quary->no_of_hours}} hours</h6>
-                            <h6><i class="fa fa-group" style="font-size:24px"> :</i>
-                                {{$quary->no_of_workers}} persons</h6>
+                            @if($quary->service_category==='Laundries')
+
+                                <h6><i class="fa fa-hashtag" style="font-size:24px"></i>
+                                    {{$quary->no_of_workers}} Pieces</h6>
+                            @elseif($quary->service_category==='Places')
+                                <h6><i class="fa fa-clock-o" style="font-size:24px"> :</i>
+                                    {{$quary->no_of_hours}} hours</h6>
+                                <h6><i class="fa fa-group" style="font-size:24px"> :</i>
+                                    {{$quary->no_of_workers}} persons</h6>
+                            @else
+
+                            @endif
                             <h6><i class="fa fa-money" style="font-size:24px"> :</i>
                                 {{$quary->price}} JOD</h6>
                             <small style="font-weight: bold">Create at : {{$quary->created_at}}</small>
