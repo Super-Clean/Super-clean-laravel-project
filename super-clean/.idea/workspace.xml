@@ -162,7 +162,7 @@
       <workItem from="1572256591645" duration="42675000" />
       <workItem from="1572360966742" duration="857000" />
       <workItem from="1572362086316" duration="22528000" />
-      <workItem from="1572446230906" duration="5591000" />
+      <workItem from="1572446230906" duration="12862000" />
     </task>
     <servers />
   </component>
@@ -187,17 +187,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/pages/create/cars.blade.php</url>
-          <line>84</line>
+          <line>101</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/pages/create/laundries.blade.php</url>
-          <line>95</line>
+          <line>113</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/pages/create/places.blade.php</url>
-          <line>5</line>
+          <line>4</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -209,6 +209,11 @@
           <url>file://$PROJECT_DIR$/resources/views/web/index.blade.php</url>
           <line>202</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/pages/admin_dashbord.blade.php</url>
+          <line>86</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

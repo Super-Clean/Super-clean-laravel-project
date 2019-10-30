@@ -9,7 +9,6 @@
                     <!-- services -->
                     <section class="services-w3ls">
                         <div class="container py-xl-5 py-lg-3">
-
                             <div class="row">
                                 <div class="col-md-4 p-sm-0">
                                     <div class="icons-w3ls text-white p-4">
@@ -123,10 +122,10 @@
                                                 {{$quary->price}} JOD</h6>
                                             <small style="font-weight: bold">Create at : {{$quary->created_at}}</small>
                                             @if($quary->is_approve === "waiting")
-                                                <form method='post' action='/service/{{$quary->id}}'>
+                                                <form style="position: absolute;    bottom: 5px;    right: 10px;" class="float-right " method='post' action='/service/{{$quary->id}}'>
                                                     @method('delete')
                                                     @csrf
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <button type="submit" class="btn btn-danger mb-2">Delete</button>
                                                 </form>
 
                                             @endif

@@ -34,7 +34,7 @@
                     </div>
                     <div class="container">
                         @foreach ($quaries as $quary)
-                            <div class="col-12  card shadow  border-left border-<?php
+                            <div style="border-width:2px" class="col-12  card shadow  border-left border-<?php
                             if ($quary->is_approve === "waiting")
                                 echo 'warning';
                             elseif ($quary->is_approve === "approved")
@@ -84,7 +84,7 @@
                                                 {{$quary->price}} JOD</h6>
                                             <small style="font-weight: bold">Create at : {{$quary->created_at}}</small>
 
-                                            <div class="row justify-content-xl-around">
+                                            <div class="row justify-content-xl-around align-items-end mt-2 mb-2">
                                                 @if($quary->is_approve==="waiting")
                                                     <form style=" margin:auto; display: inline-block" method="post"
                                                           action="{{route('Admin.update',['id' => $quary->id])}}">
