@@ -11,17 +11,18 @@ class ServiceController extends Controller
     public function index()
     {
         $user_id = Auth::id();
+        $filter = 'All status';
         $quaries = Service::where('user_id', $user_id)->with('user')->orderBy('created_at', 'desc')->get();
-        return view('pages.user_dashbord', compact('quaries'));
+        return view('pages.user_dashbord', compact('quaries','filter'));
     }
 
     public function create()
     {
+//        return redirect()->route('service.index');
     }
 
     public function store()
     {
-
         $service = new Service();
         $service->service_category = request('service_category');
         $service->service_type = request('service_type');
@@ -55,17 +56,20 @@ class ServiceController extends Controller
     public function filter(Request $request)
     {
         $user_id = Auth::id();
-
-//        $quaries = Service::where('user_id', $user_id)->with('user')->get();
-        $quaries = Service::where('is_approve', $request->input("status"))->where('user_id', $user_id)->with('user')->get();
-        return view('pages.user_dashbord', compact('quaries'));
+        $filter = $request->input("status");
+        if ($filter==="All status")
+        {
+            return redirect()->route('service.index');
+        }else{
+            $quaries = Service::where('is_approve',$filter )->where('user_id', $user_id)->with('user')->orderBy('created_at', 'desc')->get();
+        }
+        return view('pages.user_dashbord', compact('quaries','filter'));
     }
 
     public function destroy($id)
     {
-      Service::findOrFail($id)->delete();
+        Service::findOrFail($id)->delete();
 //        $Article = Article::where('id', $id)->delete();
         return redirect()->route('service.index');
     }
-
 }

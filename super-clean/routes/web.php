@@ -17,7 +17,9 @@ Route::get('/create/laundries', function () {   return view('pages.create.laundr
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+//Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', function() { return view('web.index');});
+Route::get('/about', function() {return view('web.about');});
 
 Route::post('/service/filter', 'ServiceController@filter')->name('service.filter');
 

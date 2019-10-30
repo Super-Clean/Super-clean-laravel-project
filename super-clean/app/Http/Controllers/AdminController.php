@@ -14,8 +14,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $quaries = Service::with('user')->get();
-        return view('pages.admin_dashbord',compact('quaries'));    }
+        $filter = 'All status';
+        $quaries = Service::with('user')->orderBy('created_at', 'desc')->get();
+        return view('pages.admin_dashbord',compact('quaries','filter'));    }
 
     /**
      * Show the form for creating a new resource.
@@ -35,12 +36,15 @@ class AdminController extends Controller
      */
     public function store(Request $request)//filter for the status
     {
-//        return $request->input("status");
-        $quaries = Service::where('is_approve', $request->input("status"))->with('user')->get();
-//        return $quaries;
-        return view('pages.admin_dashbord',compact('quaries'));
-//        return view("pages.admin_dashbord");
+        $filter = $request->input("status");
 
+        if ($filter==="All status")
+        {
+            return redirect()->route('Admin.index');
+        }else{
+            $quaries = Service::where('is_approve', $filter)->with('user')->orderBy('created_at', 'desc')->get();
+        }
+        return view('pages.admin_dashbord',compact('quaries','filter'));
 
 
     }
