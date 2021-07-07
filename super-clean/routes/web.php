@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/create/cars', function () {    return view('pages.create.cars');});
+Route::get('/create/places', function () {    return view('pages.create.places');});
+Route::get('/create/laundries', function () {   return view('pages.create.laundries');});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', function() { return view('web.index');});
+Route::get('/about', function() {return view('web.about');});
+
+Route::post('/service/filter', 'ServiceController@filter')->name('service.filter');
+
+//Route::post('/My_Articles', 'AdminController@my_articles')->name('My_Articles');
+
+route::resource('service','ServiceController');
+route::resource('Admin','AdminController');

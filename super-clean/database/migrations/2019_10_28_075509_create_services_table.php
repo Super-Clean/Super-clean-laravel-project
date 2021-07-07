@@ -23,8 +23,8 @@ class CreateServicesTable extends Migration
             $table->unsignedInteger('no_of_workers');
             $table->unsignedInteger('price');
             $table->string('address');
-            $table->string('description');
-            $table->boolean('is_approve');
+            $table->string('description')->default(null);
+            $table->string('is_approve')->default("waiting"); //default false
             $table->timestamp('date');
             $table->timestamps();
         });
